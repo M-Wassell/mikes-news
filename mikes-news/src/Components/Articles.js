@@ -14,7 +14,6 @@ const Articles = () =>{
         });
     }, []);
 
-    console.log(articles);
     return(
         <main className="articles">
             <h2>Articles</h2>
@@ -22,9 +21,7 @@ const Articles = () =>{
                 {articles.map((article) =>{
                     return (
                         <li key={article.article_id}>
-                            <h3>{article.article_title}</h3>
-                            <p>{article.console}</p>
-                            <p>Votes: {article.votes}</p>
+                            <h3>{article.title}</h3>
                         </li>
                     );
                 })}

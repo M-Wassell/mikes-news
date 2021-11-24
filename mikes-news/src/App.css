@@ -11,18 +11,18 @@
 }
 
 .header{
-  border: solid red 1px;
+  border: solid red 10px;
   grid-area: header;
 }
 
 .nav{
-  border: solid black 1px;
+  border: solid black 10px;
   grid-area: nav;
   padding: 50px 0;
 }
 
 .articles{
-  border: solid blue 1px;
+  border: solid blue 10px;
   grid-area: main;
 }
 

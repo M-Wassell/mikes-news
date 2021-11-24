@@ -20,13 +20,15 @@ const Nav = () =>{
         console.log(topics);
     return (
         <BrowserRouter>
-            <nav className="nav">{
+            
+            <nav className="nav ">Topics{
                 topics.map((topic) =>{
                     return(
-                        <Link 
-                        key={topic.topic_slug} 
-                        to={`/topics/${topic.topic_slug}`}>
-                            {topic.topic_description}
+                        <Link key={topic.topic_slug} 
+                        to={`/topics/${topic.slug}`}>
+                        
+                        <h3>{topic.slug}</h3>
+                        
                         </Link>
                     );
                 })}
