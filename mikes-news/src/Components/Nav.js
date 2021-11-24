@@ -1,4 +1,4 @@
-import { BrowserRouter} from 'react-router-dom'
+
 import React from "react";
 import { Link } from "react-router-dom";
 import { useEffect, useState } from 'react';
@@ -8,7 +8,8 @@ const Nav = () =>{
     const [topics, setTopics] = useState([]);
 
     useEffect(() =>{
-        getTopics().then((topics) =>{
+        getTopics()
+        .then((topics) =>{
             setTopics(topics);
         })
         .catch((err) =>{
@@ -19,21 +20,18 @@ const Nav = () =>{
 
         console.log(topics);
     return (
-        <BrowserRouter>
-            
-            <nav className="nav ">Topics{
-                topics.map((topic) =>{
+            <nav className="nav">
+                {topics.map((topic) =>{
                     return(
-                        <Link key={topic.topic_slug} 
-                        to={`/topics/${topic.slug}`}>
-                        
-                        <h3>{topic.slug}</h3>
+                        <Link key={topic.topic_slug} to={`/topics/${topic.slug}`}>
+                            
+                        <ul>{topic.slug}</ul>
                         
                         </Link>
                     );
                 })}
             </nav>
-        </BrowserRouter> 
+        
     );
 };
 

@@ -7,10 +7,16 @@ const articlesApi = axios.create({
 export const getTopics = () =>{
     return articlesApi.get('/topics').then((res) =>{
         return res.data.topics;
+        
     });
 };
-export const getArticles = () =>{
-    return articlesApi.get('/articles').then((res) =>{
-        return res.data.articles;
-    });
+export const getArticles = (individialTopic) =>{
+        return articlesApi
+        .get('/articles', {
+            params: { topic: individialTopic},
+        })
+        .then((res) =>{
+            console.log(res.data.articles);
+            return res.data.articles;
+        });
 };
