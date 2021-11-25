@@ -20,3 +20,14 @@ export const getArticles = (individialTopic) =>{
             return res.data.articles;
         });
 };
+export const updateArticleVote = async (article_id, userVote)=> {
+    await articlesApi.patch(`/articles/${article_id}`, {inc_votes: userVote});
+    console.log(article_id);
+}
+
+export const getSingleArticle = (article_id) =>{
+    return articlesApi.get(`/articles/${article_id}`).then((data)=>{
+        
+        console.log(data);
+    })
+}

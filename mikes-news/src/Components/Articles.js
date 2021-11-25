@@ -1,6 +1,8 @@
 import React, {useEffect, useState} from "react";
-import { getArticles} from "../utils/api";
+import { getArticles, getSingleArticle, updateArticleVote} from "../utils/api";
 import { useParams } from "react-router";
+import { Link } from "react-router-dom";
+
 
 const Articles = () =>{
     const [articles, setArticles] = useState([]);
@@ -18,6 +20,8 @@ const Articles = () =>{
         });
     }, [topic_name]);
 
+    updateArticleVote()
+
     return(
         <main className="articles">
             <h2>Articles</h2>
@@ -25,9 +29,15 @@ const Articles = () =>{
                 {articles.map((article) =>{
                     return (
                         <li key={article.article_id}>
+                            {/* <Link to={`/article/ ${article.article_id}`}>{article.vote}</Link> */}
                             <h3>{article.title}</h3>
-                            <p>{articles.title}</p>
-                            <p>title: {article.body}</p>
+                            <p>{`Votes ${article.vote}`}</p>
+                            {/* <p>{articles.title}</p> */}
+                            <p>{article.body}</p>
+                            <button onClick = {getSingleArticle}  
+                             
+                            ></button>
+                            <Link to={`/articles/${article.article_id}`}>Signle Article this way</Link>
                         </li>
                     );
                 })}
